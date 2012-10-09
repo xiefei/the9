@@ -483,11 +483,15 @@
 		26BD945416226CBB002A3F84 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				26BD95F51623BE0C002A3F84 /* Backgrounds */,
+				26BD95F61623BE0C002A3F84 /* Fonts */,
+				26BD95F71623BE0D002A3F84 /* Sounds */,
+				26BD95F81623BE0D002A3F84 /* Spritepng */,
+				26BD95EE16226CBE002A3F84 /* blocks.png */,
+				26BD945516226CBB002A3F84 /* English.lproj */,
 				26BD945C16226CBC002A3F84 /* fps_images.png */,
 				26BD945E16226CBC002A3F84 /* icon.icns */,
 				26BD946016226CBC002A3F84 /* Info.plist */,
-				26BD95EE16226CBE002A3F84 /* blocks.png */,
-				26BD945516226CBB002A3F84 /* English.lproj */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -879,6 +883,38 @@
 				26BD95E316226CBE002A3F84 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		26BD95F51623BE0C002A3F84 /* Backgrounds */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Backgrounds;
+			path = Resources/Backgrounds;
+			sourceTree = "<group>";
+		};
+		26BD95F61623BE0C002A3F84 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Fonts;
+			path = Resources/Fonts;
+			sourceTree = "<group>";
+		};
+		26BD95F71623BE0D002A3F84 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Sounds;
+			path = Resources/Sounds;
+			sourceTree = "<group>";
+		};
+		26BD95F81623BE0D002A3F84 /* Spritepng */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Spritepng;
+			path = Resources/Spritepng;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
