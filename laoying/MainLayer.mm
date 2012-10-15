@@ -8,7 +8,7 @@
 
 
 // Import the interfaces
-#import "HelloWorldLayer.h"
+#import "MainLayer.h"
 
 //Pixel to metres ratio. Box2D uses metres as the unit for measurement.
 //This ratio defines how many pixels correspond to 1 Box2D "metre"
@@ -25,7 +25,7 @@ enum {
 
 
 // HelloWorldLayer implementation
-@implementation HelloWorldLayer
+@implementation MainLayer
 
 +(CCScene *) scene
 {
@@ -33,7 +33,7 @@ enum {
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	HelloWorldLayer *layer = [HelloWorldLayer node];
+	MainLayer *layer = [MainLayer node];
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
@@ -77,11 +77,11 @@ enum {
 		
 		uint32 flags = 0;
 		flags += b2DebugDraw::e_shapeBit;
-//		flags += b2DebugDraw::e_jointBit;
-//		flags += b2DebugDraw::e_aabbBit;
-//		flags += b2DebugDraw::e_pairBit;
-//		flags += b2DebugDraw::e_centerOfMassBit;
-		m_debugDraw->SetFlags(flags);		
+        //		flags += b2DebugDraw::e_jointBit;
+        //		flags += b2DebugDraw::e_aabbBit;
+        //		flags += b2DebugDraw::e_pairBit;
+        //		flags += b2DebugDraw::e_centerOfMassBit;
+		m_debugDraw->SetFlags(flags);
 		
 		
 		// Define the ground body.
@@ -94,7 +94,7 @@ enum {
 		b2Body* groundBody = world->CreateBody(&groundBodyDef);
 		
 		// Define the ground box shape.
-		b2PolygonShape groundBox;		
+		b2PolygonShape groundBox;
 		
 		// bottom
 		groundBox.SetAsEdge(b2Vec2(0,0), b2Vec2(screenSize.width/PTM_RATIO,0));
@@ -133,7 +133,7 @@ enum {
 -(void) draw
 {
 	// Default GL states: GL_TEXTURE_2D, GL_VERTEX_ARRAY, GL_COLOR_ARRAY, GL_TEXTURE_COORD_ARRAY
-	// Needed states:  GL_VERTEX_ARRAY, 
+	// Needed states:  GL_VERTEX_ARRAY,
 	// Unneeded states: GL_TEXTURE_2D, GL_COLOR_ARRAY, GL_TEXTURE_COORD_ARRAY
 	glDisable(GL_TEXTURE_2D);
 	glDisableClientState(GL_COLOR_ARRAY);
@@ -145,7 +145,7 @@ enum {
 	glEnable(GL_TEXTURE_2D);
 	glEnableClientState(GL_COLOR_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-
+    
 }
 
 -(void) addNewSpriteWithCoords:(CGPoint)p
@@ -166,7 +166,7 @@ enum {
 	//Set up a 1m squared box in the physics world
 	b2BodyDef bodyDef;
 	bodyDef.type = b2_dynamicBody;
-
+    
 	bodyDef.position.Set(p.x/PTM_RATIO, p.y/PTM_RATIO);
 	bodyDef.userData = sprite;
 	b2Body *body = world->CreateBody(&bodyDef);
@@ -177,7 +177,7 @@ enum {
 	
 	// Define the dynamic body fixture.
 	b2FixtureDef fixtureDef;
-	fixtureDef.shape = &dynamicBox;	
+	fixtureDef.shape = &dynamicBox;
 	fixtureDef.density = 1.0f;
 	fixtureDef.friction = 0.3f;
 	body->CreateFixture(&fixtureDef);
@@ -198,7 +198,7 @@ enum {
 	// Instruct the world to perform a single step of simulation. It is
 	// generally best to keep the time step and iterations fixed.
 	world->Step(dt, velocityIterations, positionIterations);
-
+    
 	
 	//Iterate over the bodies in the physics world
 	for (b2Body* b = world->GetBodyList(); b; b = b->GetNext())
@@ -208,7 +208,7 @@ enum {
 			CCSprite *myActor = (CCSprite*)b->GetUserData();
 			myActor.position = CGPointMake( b->GetPosition().x * PTM_RATIO, b->GetPosition().y * PTM_RATIO);
 			myActor.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
-		}	
+		}
 	}
 }
 
@@ -225,7 +225,7 @@ enum {
 }
 
 - (void)accelerometer:(UIAccelerometer*)accelerometer didAccelerate:(UIAcceleration*)acceleration
-{	
+{
 	static float prevX=0, prevY=0;
 	
 	//#define kFilterFactor 0.05f
@@ -252,7 +252,7 @@ enum {
 	world = NULL;
 	
 	delete m_debugDraw;
-
+    
 	// don't forget to call "super dealloc"
 	[super dealloc];
 }

@@ -13,7 +13,7 @@
 #import "GLES-Render.h"
 
 // HelloWorldLayer
-@interface HelloWorldLayer : CCLayer
+@interface MainLayer : CCLayer
 {
 	b2World* world;
 	GLESDebugDraw *m_debugDraw;
